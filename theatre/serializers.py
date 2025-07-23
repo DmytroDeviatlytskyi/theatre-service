@@ -1,6 +1,5 @@
 from django.db import transaction
 from rest_framework import serializers
-from rest_framework.exceptions import ValidationError
 
 from theatre.models import (
     Ticket,
@@ -38,8 +37,12 @@ class PlaySerializer(serializers.ModelSerializer):
 
 
 class PlayListSerializer(PlaySerializer):
-    actors = serializers.SlugRelatedField(slug_field="full_name", read_only=True, many=True)
-    genres = serializers.SlugRelatedField(slug_field="name", read_only=True, many=True)
+    actors = serializers.SlugRelatedField(
+        slug_field="full_name", read_only=True, many=True
+    )
+    genres = serializers.SlugRelatedField(
+        slug_field="name", read_only=True, many=True
+    )
 
 
 class PlayRetrieveSerializer(PlaySerializer):
@@ -55,14 +58,23 @@ class PerformanceSerializer(serializers.ModelSerializer):
 
 class PerformanceListSerializer(serializers.ModelSerializer):
     play_title = serializers.CharField(source="play.title", read_only=True)
-    theatre_hall = serializers.CharField(source="theatre_hall.name", read_only=True)
-    theatre_hall_capacity = serializers.IntegerField(source="theatre_hall.capacity", read_only=True)
+    theatre_hall = serializers.CharField(
+        source="theatre_hall.name", read_only=True
+    )
+    theatre_hall_capacity = serializers.IntegerField(
+        source="theatre_hall.capacity", read_only=True
+    )
     tickets_available = serializers.IntegerField(read_only=True)
-
 
     class Meta:
         model = Performance
-        fields = ("id", "play_title", "theatre_hall", "theatre_hall_capacity", "tickets_available")
+        fields = (
+            "id",
+            "play_title",
+            "theatre_hall",
+            "theatre_hall_capacity",
+            "tickets_available"
+        )
 
 
 class TicketSerializer(serializers.ModelSerializer):
@@ -97,6 +109,7 @@ class PerformanceRetrieveSerializer(serializers.ModelSerializer):
     taken_places = TicketSeatsSerializer(
         many=True, read_only=True, source="tickets"
     )
+
     class Meta:
         model = Performance
         fields = ("id", "show_time", "play", "theatre_hall", "taken_places")

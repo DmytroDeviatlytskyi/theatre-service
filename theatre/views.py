@@ -1,18 +1,26 @@
 from django.db.models import F, Count
-from django.shortcuts import render
 from rest_framework import viewsets, mixins
 from theatre.models import (
     TheatreHall,
-    Ticket,
     Actor,
     Genre,
     Reservation,
     Play,
     Performance
 )
-from theatre.serializers import GenreSerializer, ActorSerializer, TheatreHallSerializer, PlaySerializer, \
-    PlayListSerializer, PlayRetrieveSerializer, PerformanceSerializer, PerformanceListSerializer, \
-    PerformanceRetrieveSerializer, ReservationSerializer, ReservationListSerializer
+from theatre.serializers import (
+    GenreSerializer,
+    ActorSerializer,
+    TheatreHallSerializer,
+    PlaySerializer,
+    PlayListSerializer,
+    PlayRetrieveSerializer,
+    PerformanceSerializer,
+    PerformanceListSerializer,
+    PerformanceRetrieveSerializer,
+    ReservationSerializer,
+    ReservationListSerializer
+)
 
 
 class GenreViewSet(
@@ -48,7 +56,6 @@ class PlayViewSet(
     queryset = Play.objects.all()
     serializer_class = PlaySerializer
 
-
     def get_serializer_class(self):
         if self.action == "list":
             return PlayListSerializer
@@ -56,7 +63,6 @@ class PlayViewSet(
         elif self.action == "retrieve":
             return PlayRetrieveSerializer
         return PlaySerializer
-
 
     def get_queryset(self):
         queryset = self.queryset
