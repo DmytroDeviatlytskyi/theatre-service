@@ -9,7 +9,7 @@ from theatre.models import (
     Play,
     Performance
 )
-from theatre.serializers import GenreSerializer
+from theatre.serializers import GenreSerializer, ActorSerializer, TheatreHallSerializer
 
 
 class GenreViewSet(
@@ -21,3 +21,19 @@ class GenreViewSet(
     serializer_class = GenreSerializer
 
 
+class ActorViewSet(
+    mixins.CreateModelMixin,
+    mixins.ListModelMixin,
+    viewsets.GenericViewSet,
+):
+    queryset = Actor.objects.all()
+    serializer_class = ActorSerializer
+
+
+class TheatreHallViewSet(
+    mixins.CreateModelMixin,
+    mixins.ListModelMixin,
+    viewsets.GenericViewSet,
+):
+    queryset = TheatreHall.objects.all()
+    serializer_class = TheatreHallSerializer
