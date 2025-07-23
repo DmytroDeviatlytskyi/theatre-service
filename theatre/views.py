@@ -109,7 +109,7 @@ class ReservationViewSet(
 
     def get_queryset(self):
         queryset = self.queryset
-        return Reservation.objects.filter(user=self.request.user)
+        return queryset.filter(user=self.request.user)
 
     def get_serializer_class(self):
         if self.action == "list":
