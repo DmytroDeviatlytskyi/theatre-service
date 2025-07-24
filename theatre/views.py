@@ -1,6 +1,7 @@
 from django.db.models import F, Count
 from rest_framework import viewsets, mixins, status
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from theatre.models import (
@@ -11,6 +12,7 @@ from theatre.models import (
     Play,
     Performance
 )
+from theatre.permissions import IsAdminOrIfAuthenticatedReadOnly
 from theatre.serializers import (
     GenreSerializer,
     ActorSerializer,
@@ -133,6 +135,7 @@ class ReservationViewSet(
         "tickets__performance__play", "tickets__performance__theatre_hall"
     )
     serializer_class = ReservationSerializer
+    permission_classes = (IsAuthenticated, )
 
     def get_queryset(self):
         queryset = self.queryset
