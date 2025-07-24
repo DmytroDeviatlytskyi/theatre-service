@@ -17,20 +17,20 @@ class UserSerializer(serializers.ModelSerializer):
             }
         }
 
-        def create(self, validated_data):
-            """Create user with encrypted password"""
-            return get_user_model().objects.create_user(**validated_data)
+    def create(self, validated_data):
+        """Create user with encrypted password"""
+        return get_user_model().objects.create_user(**validated_data)
 
-        def update(self, instance, validated_data):
-            """Update user with encrypted password"""
-            passwort = validated_data.pop("password", None)
-            user = super().update(instance, validated_data)
+    def update(self, instance, validated_data):
+        """Update user with encrypted password"""
+        passwort = validated_data.pop("password", None)
+        user = super().update(instance, validated_data)
 
-            if passwort:
-                user.set_password(passwort)
-                user.save()
+        if passwort:
+            user.set_password(passwort)
+            user.save()
 
-            return user
+        return user
 
 
 class AuthTokenSerializer(serializers.Serializer):
