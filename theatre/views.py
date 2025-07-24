@@ -1,7 +1,9 @@
+from datetime import datetime
+
 from django.db.models import F, Count
 from rest_framework import viewsets, mixins, status
 from rest_framework.decorators import action
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 
 from theatre.models import (
@@ -58,7 +60,7 @@ class TheatreHallViewSet(
 class PlayViewSet(
     viewsets.ModelViewSet
 ):
-    queryset = Play.objects.all()
+    queryset = Play.objects.prefetch_related("actors", "genres")
     serializer_class = PlaySerializer
 
     def get_serializer_class(self):
@@ -73,17 +75,37 @@ class PlayViewSet(
 
         return PlaySerializer
 
-    def get_queryset(self):
-        queryset = self.queryset
-        if self.action in ("list", "retrieve"):
-            queryset = queryset.prefetch_related("actors", "genres")
 
-        return queryset
+    @staticmethod
+    def _params_to_ints(queryset):
+        return [int(str_id) for str_id in queryset.split(",")]
+
+
+    def get_queryset(self):
+        title = self.request.query_params.get("title")
+        genres = self.request.query_params.get("genres")
+        actors = self.request.query_params.get("actors")
+
+        queryset = self.queryset
+
+        if title:
+            queryset = queryset.filter(title__icontains=title)
+
+        if genres:
+            genres_ids = self._params_to_ints(genres)
+            queryset = queryset.filter(genres__id__in=genres_ids)
+
+        if actors:
+            actors_ids = self._params_to_ints(actors)
+            queryset = queryset.filter(actors__id__in=actors_ids)
+
+        return queryset.distinct()
 
     @action(
         methods=["POST"],
         detail=True,
-        url_path="upload-image"
+        url_path="upload-image",
+        permission_classes=[IsAdminUser],
     )
     def upload_image(self, request, pk=None):
         play = self.get_object()
@@ -111,10 +133,20 @@ class PerformanceViewSet(
     serializer_class = PerformanceSerializer
 
     def get_queryset(self):
+        date = self.request.query_params.get("date")
+        play_id_str = self.request.query_params.get("play")
+
         queryset = self.queryset
-        if self.action in ("list", "retrieve"):
-            queryset = queryset.select_related("play", "theatre_hall")
-        return queryset
+
+        if date:
+            date = datetime.strptime(date, "%Y-%m-%d").date()
+            queryset = queryset.filter(show_time__date=date)
+
+        if play_id_str:
+            play_ids = [int(str_id) for str_id in play_id_str.split(",")]
+            queryset = queryset.filter(play_id__in=play_ids)
+
+        return queryset.distinct()
 
     def get_serializer_class(self):
         if self.action == "list":
