@@ -24,5 +24,6 @@ from theatre_service import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/theatre/", include("theatre.urls", namespace="theatre")),
+    path("api/user/", include("user.urls", namespace="user")),
 ] + debug_toolbar_urls() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
