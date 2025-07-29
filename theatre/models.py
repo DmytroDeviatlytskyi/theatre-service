@@ -13,6 +13,9 @@ class TheatreHall(models.Model):
     rows = models.IntegerField()
     seats_in_row = models.IntegerField()
 
+    class Meta:
+        db_table = "theatre_hall"
+
     @property
     def capacity(self) -> int:
         return self.rows * self.seats_in_row

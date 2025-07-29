@@ -55,10 +55,14 @@ class TheatreHallViewSet(
 ):
     queryset = TheatreHall.objects.all()
     serializer_class = TheatreHallSerializer
+    context_object_name = "theatre_hall"
 
 
 class PlayViewSet(
-    viewsets.ModelViewSet
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    viewsets.GenericViewSet,
 ):
     queryset = Play.objects.prefetch_related("actors", "genres")
     serializer_class = PlaySerializer
@@ -154,7 +158,6 @@ class PerformanceViewSet(
     def get_queryset(self):
         date = self.request.query_params.get("date")
         play_id_str = self.request.query_params.get("play")
-
         queryset = self.queryset
 
         if date:
