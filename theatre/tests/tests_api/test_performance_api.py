@@ -65,7 +65,7 @@ class PrivatePerformanceApiTests(TestCase):
         create_performance(show_time="2025-07-28 20:00:00")
         response = self.client.get(PERFORMANCE_URL)
 
-        performances = get_performance_queryset()
+        performances = get_performance_queryset().order_by("id")
 
         serializer = PerformanceListSerializer(performances, many=True)
 

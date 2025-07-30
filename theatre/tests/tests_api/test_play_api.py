@@ -82,8 +82,8 @@ class PlayImageUploadTests(TestCase):
                 {
                     "title": "Test Title",
                     "description": "Test description",
-                    "genres": [1],
-                    "actors": [1],
+                    "genres": [self.genre.id],
+                    "actors": [self.actor.id],
                     "image": tmp
                 },
                 format="multipart",
