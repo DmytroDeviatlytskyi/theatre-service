@@ -1,0 +1,694 @@
+[
+{
+    "model": "theatre.theatrehall",
+    "pk": 1,
+    "fields": {
+        "name": "Main Hall",
+        "rows": 20,
+        "seats_in_row": 25
+    }
+},
+{
+    "model": "theatre.theatrehall",
+    "pk": 2,
+    "fields": {
+        "name": "Small Hall",
+        "rows": 10,
+        "seats_in_row": 15
+    }
+},
+{
+    "model": "theatre.theatrehall",
+    "pk": 3,
+    "fields": {
+        "name": "Chamber Hall",
+        "rows": 8,
+        "seats_in_row": 12
+    }
+},
+{
+    "model": "theatre.theatrehall",
+    "pk": 4,
+    "fields": {
+        "name": "Orpheus Hall",
+        "rows": 16,
+        "seats_in_row": 20
+    }
+},
+{
+    "model": "theatre.genre",
+    "pk": 1,
+    "fields": {
+        "name": "Drama"
+    }
+},
+{
+    "model": "theatre.genre",
+    "pk": 2,
+    "fields": {
+        "name": "Comedy"
+    }
+},
+{
+    "model": "theatre.genre",
+    "pk": 3,
+    "fields": {
+        "name": "Tragedy"
+    }
+},
+{
+    "model": "theatre.genre",
+    "pk": 4,
+    "fields": {
+        "name": "Musical"
+    }
+},
+{
+    "model": "theatre.genre",
+    "pk": 5,
+    "fields": {
+        "name": "Romantic"
+    }
+},
+{
+    "model": "theatre.genre",
+    "pk": 6,
+    "fields": {
+        "name": "Historical"
+    }
+},
+{
+    "model": "theatre.genre",
+    "pk": 7,
+    "fields": {
+        "name": "Fantasy"
+    }
+},
+{
+    "model": "theatre.genre",
+    "pk": 8,
+    "fields": {
+        "name": "Thriller"
+    }
+},
+{
+    "model": "theatre.genre",
+    "pk": 9,
+    "fields": {
+        "name": "Monodrama"
+    }
+},
+{
+    "model": "theatre.genre",
+    "pk": 10,
+    "fields": {
+        "name": "Absurdist"
+    }
+},
+{
+    "model": "theatre.actor",
+    "pk": 1,
+    "fields": {
+        "first_name": "Emma",
+        "last_name": "Holloway"
+    }
+},
+{
+    "model": "theatre.actor",
+    "pk": 2,
+    "fields": {
+        "first_name": "James",
+        "last_name": "Montgomery"
+    }
+},
+{
+    "model": "theatre.actor",
+    "pk": 3,
+    "fields": {
+        "first_name": "Clara",
+        "last_name": "Whitman"
+    }
+},
+{
+    "model": "theatre.actor",
+    "pk": 4,
+    "fields": {
+        "first_name": "Oliver",
+        "last_name": "Kensington"
+    }
+},
+{
+    "model": "theatre.actor",
+    "pk": 5,
+    "fields": {
+        "first_name": "Isabelle",
+        "last_name": "Thorne"
+    }
+},
+{
+    "model": "theatre.actor",
+    "pk": 6,
+    "fields": {
+        "first_name": "Liam",
+        "last_name": "Ashford"
+    }
+},
+{
+    "model": "theatre.actor",
+    "pk": 7,
+    "fields": {
+        "first_name": "Sophie",
+        "last_name": "Winters"
+    }
+},
+{
+    "model": "theatre.actor",
+    "pk": 8,
+    "fields": {
+        "first_name": "Ethan",
+        "last_name": "Blackwell"
+    }
+},
+{
+    "model": "theatre.actor",
+    "pk": 9,
+    "fields": {
+        "first_name": "Grace",
+        "last_name": "Carver"
+    }
+},
+{
+    "model": "theatre.actor",
+    "pk": 10,
+    "fields": {
+        "first_name": "Henry",
+        "last_name": "Fairfax"
+    }
+},
+{
+    "model": "theatre.play",
+    "pk": 1,
+    "fields": {
+        "title": "Shadows of the Past",
+        "description": "A dramatic tale of lost love, memory, and the echoes that haunt us.",
+        "image": "uploads/play/shadows-of-the-past-f1643088-ff16-4fbe-875d-38bb9d80286b.png",
+        "genres": [
+            1,
+            5
+        ],
+        "actors": [
+            1,
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "theatre.play",
+    "pk": 2,
+    "fields": {
+        "title": "The Laughing Hour",
+        "description": "A witty and fast-paced comedy that explores the chaos of mistaken identities.",
+        "image": "uploads/play/the-laughing-hour-ede7dadf-064d-4dd1-9724-76b371cb30c6.png",
+        "genres": [
+            2
+        ],
+        "actors": [
+            4,
+            6,
+            7
+        ]
+    }
+},
+{
+    "model": "theatre.play",
+    "pk": 3,
+    "fields": {
+        "title": "Whispers in the Fog",
+        "description": "A suspenseful thriller unraveling a mystery buried deep within a seaside village.",
+        "image": "",
+        "genres": [
+            1,
+            8
+        ],
+        "actors": [
+            5,
+            8,
+            9
+        ]
+    }
+},
+{
+    "model": "theatre.play",
+    "pk": 4,
+    "fields": {
+        "title": "Kingdom of Glass",
+        "description": "A fantasy epic set in a world ruled by fragile power and ancient secrets.",
+        "image": "",
+        "genres": [
+            6,
+            7
+        ],
+        "actors": [
+            1,
+            6,
+            10
+        ]
+    }
+},
+{
+    "model": "theatre.play",
+    "pk": 5,
+    "fields": {
+        "title": "One Step Back",
+        "description": "A monodrama following a single character as they confront a life-altering decision.",
+        "image": "",
+        "genres": [
+            3,
+            9
+        ],
+        "actors": [
+            9
+        ]
+    }
+},
+{
+    "model": "theatre.play",
+    "pk": 6,
+    "fields": {
+        "title": "Echoes of Silence",
+        "description": "A poignant exploration of isolation and identity, as five strangers confront their deepest fears in a desolate theater.",
+        "image": "",
+        "genres": [
+            1,
+            10
+        ],
+        "actors": [
+            2,
+            3,
+            5,
+            7,
+            8
+        ]
+    }
+},
+{
+    "model": "theatre.play",
+    "pk": 7,
+    "fields": {
+        "title": "The Last Rehearsal",
+        "description": "On the eve of opening night, tensions rise as buried secrets among the cast threaten to derail the entire production.",
+        "image": "",
+        "genres": [
+            1,
+            8
+        ],
+        "actors": [
+            1,
+            4,
+            9,
+            10
+        ]
+    }
+},
+{
+    "model": "theatre.play",
+    "pk": 13,
+    "fields": {
+        "title": "The Heiress Apparent",
+        "description": "Schemes, secrets, and scandal in high society as a young heiress discovers her family's fortune hides dangerous truths.",
+        "image": "uploads/play/the-heiress-apparent-f5ff24c5-c393-4a84-9ba0-5a39ffa8c250.png",
+        "genres": [
+            1,
+            5
+        ],
+        "actors": [
+            1,
+            4,
+            5
+        ]
+    }
+},
+{
+    "model": "theatre.play",
+    "pk": 14,
+    "fields": {
+        "title": "Great Expectations",
+        "description": "A reimagined tale of ambition, betrayal, and self-discovery in 19th-century London, as a poor apprentice climbs into the world of aristocracy.",
+        "image": "uploads/play/great-expectations-3a5cc54b-f2ac-4ff8-aa76-a21493545449.png",
+        "genres": [
+            3,
+            6
+        ],
+        "actors": [
+            2,
+            9,
+            10
+        ]
+    }
+},
+{
+    "model": "theatre.play",
+    "pk": 15,
+    "fields": {
+        "title": "Twelfth Night Masquerade",
+        "description": "During a festive masquerade ball, identities blur and hearts entangle in a whirlwind of love, confusion, and comedy.",
+        "image": "uploads/play/twelfth-night-masquerade-fe8dbebf-1f5b-4aa1-9ae8-d095e2e58961.png",
+        "genres": [
+            2,
+            5
+        ],
+        "actors": [
+            3,
+            6,
+            7
+        ]
+    }
+},
+{
+    "model": "theatre.performance",
+    "pk": 1,
+    "fields": {
+        "play": 1,
+        "theatre_hall": 1,
+        "show_time": "2025-07-26T16:00:00Z"
+    }
+},
+{
+    "model": "theatre.performance",
+    "pk": 2,
+    "fields": {
+        "play": 4,
+        "theatre_hall": 2,
+        "show_time": "2025-07-24T19:30:00Z"
+    }
+},
+{
+    "model": "theatre.performance",
+    "pk": 3,
+    "fields": {
+        "play": 5,
+        "theatre_hall": 2,
+        "show_time": "2025-07-25T20:00:00Z"
+    }
+},
+{
+    "model": "theatre.performance",
+    "pk": 5,
+    "fields": {
+        "play": 3,
+        "theatre_hall": 3,
+        "show_time": "2025-07-29T17:00:00Z"
+    }
+},
+{
+    "model": "theatre.reservation",
+    "pk": 1,
+    "fields": {
+        "created_at": "2025-07-23T16:19:43.531Z",
+        "user": 1
+    }
+},
+{
+    "model": "theatre.reservation",
+    "pk": 2,
+    "fields": {
+        "created_at": "2025-07-23T16:20:08.032Z",
+        "user": 1
+    }
+},
+{
+    "model": "theatre.reservation",
+    "pk": 3,
+    "fields": {
+        "created_at": "2025-07-23T16:22:49.655Z",
+        "user": 1
+    }
+},
+{
+    "model": "theatre.reservation",
+    "pk": 4,
+    "fields": {
+        "created_at": "2025-07-23T16:28:47.278Z",
+        "user": 1
+    }
+},
+{
+    "model": "theatre.reservation",
+    "pk": 5,
+    "fields": {
+        "created_at": "2025-07-23T16:30:11.809Z",
+        "user": 1
+    }
+},
+{
+    "model": "theatre.reservation",
+    "pk": 6,
+    "fields": {
+        "created_at": "2025-07-23T16:30:36.775Z",
+        "user": 1
+    }
+},
+{
+    "model": "theatre.reservation",
+    "pk": 7,
+    "fields": {
+        "created_at": "2025-07-24T14:05:34.913Z",
+        "user": 4
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 1,
+    "fields": {
+        "row": 5,
+        "seat": 12,
+        "performance": 3,
+        "reservation": 1
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 2,
+    "fields": {
+        "row": 5,
+        "seat": 13,
+        "performance": 3,
+        "reservation": 1
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 3,
+    "fields": {
+        "row": 4,
+        "seat": 13,
+        "performance": 3,
+        "reservation": 2
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 4,
+    "fields": {
+        "row": 4,
+        "seat": 14,
+        "performance": 3,
+        "reservation": 2
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 5,
+    "fields": {
+        "row": 8,
+        "seat": 4,
+        "performance": 5,
+        "reservation": 3
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 6,
+    "fields": {
+        "row": 8,
+        "seat": 5,
+        "performance": 5,
+        "reservation": 3
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 7,
+    "fields": {
+        "row": 13,
+        "seat": 6,
+        "performance": 1,
+        "reservation": 4
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 8,
+    "fields": {
+        "row": 13,
+        "seat": 5,
+        "performance": 1,
+        "reservation": 4
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 9,
+    "fields": {
+        "row": 13,
+        "seat": 7,
+        "performance": 1,
+        "reservation": 4
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 10,
+    "fields": {
+        "row": 13,
+        "seat": 4,
+        "performance": 1,
+        "reservation": 4
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 11,
+    "fields": {
+        "row": 4,
+        "seat": 12,
+        "performance": 2,
+        "reservation": 5
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 12,
+    "fields": {
+        "row": 5,
+        "seat": 13,
+        "performance": 2,
+        "reservation": 5
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 13,
+    "fields": {
+        "row": 4,
+        "seat": 14,
+        "performance": 2,
+        "reservation": 5
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 14,
+    "fields": {
+        "row": 5,
+        "seat": 15,
+        "performance": 2,
+        "reservation": 5
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 15,
+    "fields": {
+        "row": 2,
+        "seat": 2,
+        "performance": 2,
+        "reservation": 6
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 16,
+    "fields": {
+        "row": 2,
+        "seat": 3,
+        "performance": 2,
+        "reservation": 6
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 17,
+    "fields": {
+        "row": 2,
+        "seat": 4,
+        "performance": 2,
+        "reservation": 6
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 18,
+    "fields": {
+        "row": 2,
+        "seat": 5,
+        "performance": 2,
+        "reservation": 6
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 19,
+    "fields": {
+        "row": 5,
+        "seat": 6,
+        "performance": 2,
+        "reservation": 7
+    }
+},
+{
+    "model": "theatre.ticket",
+    "pk": 20,
+    "fields": {
+        "row": 5,
+        "seat": 5,
+        "performance": 2,
+        "reservation": 7
+    }
+},
+{
+    "model": "user.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$BH5S2WTXzPgX0RXttLv1Hv$pgtSMO2wo6bvH0XHmqyP0u0qmbtTyLaHdT8IhK7RaZ0=",
+        "last_login": "2025-07-23T16:09:26.808Z",
+        "is_superuser": true,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-07-23T13:27:03.418Z",
+        "email": "admin@admin.com",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "user.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$t38qf1VsBkRUZpaYF06Ncj$9uiYQJABn0c+2iD9URdctYE0nY2KrW9zmHD6O+nJkyc=",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-07-24T14:02:38.391Z",
+        "email": "user@testuser.com",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
